@@ -68,7 +68,16 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
-    pass  
+    '''
+    PURPOSE: Save data to a sqlalchemy .db file
+    INPUTS:
+        df: the dataframe from clean_data()
+        database_filename: a string for the database file name
+    OUTPUT:
+        sqlalchemy database file
+    '''
+    engine = create_engine(f'sqlite:////{database_filename}.db')
+    df.to_sql(f'{database_filename}.db', engine, index=False)  
 
 
 def main():
