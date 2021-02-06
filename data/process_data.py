@@ -65,6 +65,10 @@ def clean_data(df):
     # drop duplicates
     df = df.drop_duplicates()
 
+    # Remove 2 values from related
+
+    df = df[df.related != 2]
+
     return df
 
 def save_data(df, database_filename):
